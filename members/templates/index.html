@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Buttons</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+     @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        *{
+            font-family: 'Barlow', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-6">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                            {{ message }}
+                            <button type="button" class="close" id="override-start" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <form action="{% url 'time_in' %}" method="post" class="mt-5">
+                    {% csrf_token %}
+                    <button name="timein" type="submit" class="btn" style="border: 1px solid gray; border-radius: 5px;">Clock in</button>
+                </form>
+                <form action="{% url 'lunch_in' %}" method="post"class="mt-5">
+                    {% csrf_token %}
+                    <button name="lunchin" type="submit" class="btn" style="border: 1px solid gray;">Break in</button>
+                </form>
+                <form action="{% url 'lunch_out' %}" method="post" class="mt-5">
+                    {% csrf_token %}
+                    <button name="lunchout" type="submit" class="btn" style="border: 1px solid gray;">Break out</button>
+                </form>
+                <form action="{% url 'lunch_in' %}" method="post"class="mt-5">
+                    {% csrf_token %}
+                    <button name="lunchin" type="submit" class="btn" style="border: 1px solid gray;">Break in</button>
+                </form>
+                <form action="{% url 'lunch_out' %}" method="post" class="mt-5">
+                    {% csrf_token %}
+                    <button name="lunchout" type="submit" class="btn" style="border: 1px solid gray;">Break out</button>
+                </form>
+                <form action="{% url 'lunch_in' %}" method="post"class="mt-5">
+                    {% csrf_token %}
+                    <button name="lunchin" type="submit" class="btn" style="border: 1px solid gray;">Break in</button>
+                </form>
+                <form action="{% url 'lunch_out' %}" method="post" class="mt-5">
+                    {% csrf_token %}
+                    <button name="lunchout" type="submit" class="btn" style="border: 1px solid gray;">Break out</button>
+                </form>
+                <form action="{% url 'time_out' %}" method="post" class="mt-5">
+                    {% csrf_token %}
+                    <button name="timeout" type="submit" class="btn" style="border: 1px solid gray;">Clock out</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function clockIn() {
+            alert("You Clocked In successfully");
+        }
+        function clockOut() {
+            alert("You Clocked Out successfully");
+        }
+        function breakIn() {
+            alert("You Break In successfully");
+        }
+        function breakOut() {
+            alert("You Break Out successfully");
+        }
+    </script>
+</body>
+</html>
